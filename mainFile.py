@@ -23,14 +23,14 @@ from introducir import solicitar_introducir_numero_extremo
 import matplotlib.pyplot as plt
 
 #--- CREACION DE UN DATAFRAME ----
-def conseguirnotas():
+def conseguircriticas():
     criticas = pd.read_csv("rotten_tomatoes_movies.csv", encoding = "UTF8", sep = ",")
     criticas = criticas.dropna(subset=["tomatometer_rating"])
     criticas = criticas.dropna(subset=["audience_rating"])
     critica_pro, critica_audiencia = list(criticas["tomatometer_rating"]), list(criticas["audience_rating"])
     return critica_pro, critica_audiencia
 
-critica_pro, critica_audiencia = conseguirnotas()
+critica_pro, critica_audiencia = conseguircriticas()
 observaciones_pro, observaciones_audiencia = pd.DataFrame({'NOTAS':np.array(critica_pro)}), pd.DataFrame({'NOTAS':np.array(critica_audiencia)})
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
@@ -57,6 +57,8 @@ if __name__ == "__main__":
         cuartil1_pu = stats2.calculoDelosCuartiles
         cuartil2_pu = stats2.calculoDelosCuartiles
         cuartil3_pu = stats2.calculoDelosCuartiles
+
+        print(media_pr, media_pu, mediana_pr, mediana_pu, cuartil1_pr, cuartil1_pu, cuartil2_pr, cuartil2_pu, cuartil3_pr, cuartil3_pu)
 
         plt.subplot(4, 2, 1)
         plt.hist(observaciones_pro['NOTAS'])
