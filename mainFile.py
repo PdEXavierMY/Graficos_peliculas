@@ -45,20 +45,14 @@ if __name__ == "__main__":
     elif eleccion == 3:
         #,media,mediana,cuartil_1,cuartil_2,cuartil_3:
         #de profesionales:
-        media_pr = stats1.calculoMediaAritmetica
-        mediana_pr = stats1.calculoMediana
-        cuartil1_pr = stats1.calculoDelosCuartiles
-        cuartil2_pr = stats1.calculoDelosCuartiles
-        cuartil3_pr = stats1.calculoDelosCuartiles
+        media_pr = stats1.calculoMediaAritmetica()
+        mediana_pr = stats1.calculoMediana()
+        cuartil_pr = stats1.calculoDelosCuartiles(mediana_pr[0], mediana_pr[1])
 
         #de público:
-        media_pu = stats2.calculoMediaAritmetica
-        mediana_pu = stats2.calculoMediana
-        cuartil1_pu = stats2.calculoDelosCuartiles
-        cuartil2_pu = stats2.calculoDelosCuartiles
-        cuartil3_pu = stats2.calculoDelosCuartiles
-
-        print(media_pr, media_pu, mediana_pr, mediana_pu, cuartil1_pr, cuartil1_pu, cuartil2_pr, cuartil2_pu, cuartil3_pr, cuartil3_pu)
+        media_pu = stats2.calculoMediaAritmetica()
+        mediana_pu = stats2.calculoMediana()
+        cuartil_pu = stats2.calculoDelosCuartiles(mediana_pu[0], mediana_pu[1])
 
         plt.subplot(4, 2, 1)
         plt.hist(observaciones_pro['NOTAS'])
@@ -75,15 +69,14 @@ if __name__ == "__main__":
         plt.subplot(4, 2, 3)
         plt.hist(observaciones_pro['NOTAS'])
         plt.title("Histograma y cuartiles(profesionales)")
-        plt.axvline(cuartil1_pr[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil1_pr[0]))
-        plt.axvline(cuartil2_pr[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil2_pr[1]))
-        plt.axvline(cuartil3_pr[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil3_pr[2]))
+        plt.axvline(cuartil_pr[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pr[0]))
+        plt.axvline(cuartil_pr[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pr[1]))
+        plt.axvline(cuartil_pr[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pr[2]))
         plt.legend(loc='upper right')
 
         plt.subplot(4, 2, 4)
         plt.boxplot(observaciones_pro['NOTAS'])
         plt.title("Diagrama de caja y bigotes(profesionales)")
-        plt.show()
 
         plt.subplot(4, 2, 5)
         plt.hist(observaciones_audiencia['NOTAS'])
@@ -100,9 +93,9 @@ if __name__ == "__main__":
         plt.subplot(4, 2, 7)
         plt.hist(observaciones_audiencia['NOTAS'])
         plt.title("Histograma y cuartiles(público)")
-        plt.axvline(cuartil1_pu[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil1_pu[0]))
-        plt.axvline(cuartil2_pu[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil2_pu[1]))
-        plt.axvline(cuartil3_pu[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil3_pu[2]))
+        plt.axvline(cuartil_pu[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pu[0]))
+        plt.axvline(cuartil_pu[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pu[1]))
+        plt.axvline(cuartil_pu[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pu[2]))
         plt.legend(loc='upper right')
 
         plt.subplot(4, 2, 8)
