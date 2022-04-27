@@ -34,7 +34,7 @@ critica_pro, critica_audiencia = conseguircriticas()
 observaciones_pro, observaciones_audiencia = pd.DataFrame({'NOTAS':np.array(critica_pro)}), pd.DataFrame({'NOTAS':np.array(critica_audiencia)})
 #observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
-#--- ANALISIS DE UNA CARACTERISTICA ---
+#--- MAIN ---
 if __name__ == "__main__":
     eleccion = solicitar_introducir_numero_extremo("Elige de quién quieres realizar las estadísticas(críticos=1, público=2 o las dos tablas a la vez(3))", 1, 3)
     stats1, stats2 = jmp.Estadisticas(observaciones_pro['NOTAS']), jmp.Estadisticas(observaciones_audiencia['NOTAS'])
