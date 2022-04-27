@@ -7,6 +7,8 @@ Link al [repositorio](https://github.com/Xavitheforce/Graficos_peliculas)
 
 En este ejercicio he reutilizado el código proporcionado en Notas con las funciones necesarias para calcular una estadística de datos(media, moda, mediana, cuartiles) a partir de un dataset panda. Simplemente he ajustado el main para que reciba un dataset(link en la parte superior) y saque las columnas que interesan en forma de lista. A partir de esa lista, pandas crea un dataset y lo pasa por el archivo JMPEstadísticas.
 
+En este caso, el dataset contiene una gran cantidad de peliculas con sus criticas por parte del público y por parte de los críticos profesionales entre otros campos. El código está planteado para que si hubiera filas en blanco con algun dato en lo referente a la puntuación de la película, esas filas sean eliminadas y no den problemas. Además, la agregación de una función que recoge en una misma ventana todas la gráficas que en este ejercicio han sido adaptadas(2 ventanas unidas en una, la de criticas profesionales y la de criticas del público) es original mía.
+
 ```python
 import pandas as pd
 import JMPEstadisticas as jmp
@@ -24,7 +26,6 @@ def conseguircriticas():
 
 critica_pro, critica_audiencia = conseguircriticas()
 observaciones_pro, observaciones_audiencia = pd.DataFrame({'NOTAS':np.array(critica_pro)}), pd.DataFrame({'NOTAS':np.array(critica_audiencia)})
-#observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
 #--- MAIN ---
 if __name__ == "__main__":
