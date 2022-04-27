@@ -32,7 +32,6 @@ def conseguircriticas():
 
 critica_pro, critica_audiencia = conseguircriticas()
 observaciones_pro, observaciones_audiencia = pd.DataFrame({'NOTAS':np.array(critica_pro)}), pd.DataFrame({'NOTAS':np.array(critica_audiencia)})
-#observaciones = pd.DataFrame({'NOTAS':np.array([3,19,10,15,14,12,9,8,11,12,11,12,13,11,14,16])})
 
 #--- MAIN ---
 if __name__ == "__main__":
