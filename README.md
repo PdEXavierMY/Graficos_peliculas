@@ -9,6 +9,8 @@ En este ejercicio he reutilizado el código proporcionado en Notas con las funci
 
 En este caso, el dataset contiene una gran cantidad de peliculas con sus criticas por parte del público y por parte de los críticos profesionales entre otros campos. El código está planteado para que si hubiera filas en blanco con algun dato en lo referente a la puntuación de la película, esas filas sean eliminadas y no den problemas. Además, la agregación de una función que recoge en una misma ventana todas la gráficas que en este ejercicio han sido adaptadas (2 ventanas unidas en una, la de criticas profesionales y la de criticas del público) es original.
 
+Este es el código del main adaptado a este ejercicio:
+
 ```python
 import pandas as pd
 import JMPEstadisticas as jmp
