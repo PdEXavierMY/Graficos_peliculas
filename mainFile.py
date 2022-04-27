@@ -37,7 +37,7 @@ observaciones_pro, observaciones_audiencia = pd.DataFrame({'NOTAS':np.array(crit
 #--- ANALISIS DE UNA CARACTERISTICA ---
 if __name__ == "__main__":
     eleccion = solicitar_introducir_numero_extremo("Elige de quién quieres realizar las estadísticas(críticos=1, público=2 o las dos tablas a la vez(3))", 1, 3)
-    stats1, stats2 = jmp.JMPEstadisticas(observaciones_pro['NOTAS']), jmp.JMPEstadisticas(observaciones_audiencia['NOTAS'])
+    stats1, stats2 = jmp.Estadisticas(observaciones_pro['NOTAS']), jmp.Estadisticas(observaciones_audiencia['NOTAS'])
     if eleccion == 1:
         stats1.analisisCaracteristica()
     elif eleccion == 2:
@@ -54,51 +54,4 @@ if __name__ == "__main__":
         mediana_pu = stats2.calculoMediana()
         cuartil_pu = stats2.calculoDelosCuartiles(mediana_pu[0], mediana_pu[1])
 
-        plt.subplot(4, 2, 1)
-        plt.hist(observaciones_pro['NOTAS'])
-        plt.title("Histograma y media(profesionales)")
-        plt.axvline(media_pr, color='red', linestyle='dashed', linewidth=1,label = str(media_pr))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 2)
-        plt.hist(observaciones_pro['NOTAS'])
-        plt.title("Histograma y mediana(profesionales)")
-        plt.axvline(mediana_pr[0], color='green', linestyle='dashed', linewidth=1,label = str(mediana_pr[0]))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 3)
-        plt.hist(observaciones_pro['NOTAS'])
-        plt.title("Histograma y cuartiles(profesionales)")
-        plt.axvline(cuartil_pr[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pr[0]))
-        plt.axvline(cuartil_pr[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pr[1]))
-        plt.axvline(cuartil_pr[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pr[2]))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 4)
-        plt.boxplot(observaciones_pro['NOTAS'])
-        plt.title("Diagrama de caja y bigotes(profesionales)")
-
-        plt.subplot(4, 2, 5)
-        plt.hist(observaciones_audiencia['NOTAS'])
-        plt.title("Histograma y media(público)")
-        plt.axvline(media_pu, color='red', linestyle='dashed', linewidth=1,label = str(media_pu))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 6)
-        plt.hist(observaciones_audiencia['NOTAS'])
-        plt.title("Histograma y mediana(público)")
-        plt.axvline(mediana_pu[0], color='green', linestyle='dashed', linewidth=1,label = str(mediana_pu[0]))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 7)
-        plt.hist(observaciones_audiencia['NOTAS'])
-        plt.title("Histograma y cuartiles(público)")
-        plt.axvline(cuartil_pu[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pu[0]))
-        plt.axvline(cuartil_pu[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pu[1]))
-        plt.axvline(cuartil_pu[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pu[2]))
-        plt.legend(loc='upper right')
-
-        plt.subplot(4, 2, 8)
-        plt.boxplot(observaciones_audiencia['NOTAS'])
-        plt.title("Diagrama de caja y bigotes(público)")
-        plt.show()
+        jmp.Estadisticas([]).visualizarjunto(observaciones_pro['NOTAS'], observaciones_audiencia['NOTAS'], media_pr, mediana_pr, cuartil_pr, media_pu, mediana_pu, cuartil_pu)

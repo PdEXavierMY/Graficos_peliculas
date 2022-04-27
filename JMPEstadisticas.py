@@ -25,7 +25,7 @@ import matplotlib.pyplot as plt
 
 
 
-class JMPEstadisticas:
+class Estadisticas:
 
     def __init__(self,caracteristica):
         self.caracteristica = caracteristica
@@ -165,6 +165,57 @@ class JMPEstadisticas:
         plt.subplot(2, 2, 4)
         plt.boxplot(self.caracteristica)
         plt.title("Diagrama de caja y bigotes")
+        plt.show()
+
+    
+    def visualizarjunto(self, caracteristica1, caracteristica2, media_pr, mediana_pr, cuartil_pr, media_pu, mediana_pu, cuartil_pu):
+        plt.subplot(4, 2, 1)
+        plt.hist(caracteristica1)
+        plt.title("Histograma y media(profesionales)")
+        plt.axvline(media_pr, color='red', linestyle='dashed', linewidth=1,label = str(media_pr))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 2)
+        plt.hist(caracteristica1)
+        plt.title("Histograma y mediana(profesionales)")
+        plt.axvline(mediana_pr[0], color='green', linestyle='dashed', linewidth=1,label = str(mediana_pr[0]))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 3)
+        plt.hist(caracteristica1)
+        plt.title("Histograma y cuartiles(profesionales)")
+        plt.axvline(cuartil_pr[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pr[0]))
+        plt.axvline(cuartil_pr[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pr[1]))
+        plt.axvline(cuartil_pr[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pr[2]))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 4)
+        plt.boxplot(caracteristica1)
+        plt.title("Diagrama de caja y bigotes(profesionales)")
+
+        plt.subplot(4, 2, 5)
+        plt.hist(caracteristica2)
+        plt.title("Histograma y media(público)")
+        plt.axvline(media_pu, color='red', linestyle='dashed', linewidth=1,label = str(media_pu))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 6)
+        plt.hist(caracteristica2)
+        plt.title("Histograma y mediana(público)")
+        plt.axvline(mediana_pu[0], color='green', linestyle='dashed', linewidth=1,label = str(mediana_pu[0]))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 7)
+        plt.hist(caracteristica2)
+        plt.title("Histograma y cuartiles(público)")
+        plt.axvline(cuartil_pu[0], color='orange', linestyle='dashed', linewidth=1,label = "Q1: "+str(cuartil_pu[0]))
+        plt.axvline(cuartil_pu[1], color='orange', linestyle='dashed', linewidth=1,label = "Q2: "+str(cuartil_pu[1]))
+        plt.axvline(cuartil_pu[2], color='orange', linestyle='dashed', linewidth=1,label = "Q3: "+str(cuartil_pu[2]))
+        plt.legend(loc='upper right')
+
+        plt.subplot(4, 2, 8)
+        plt.boxplot(caracteristica2)
+        plt.title("Diagrama de caja y bigotes(público)")
         plt.show()
 
 
